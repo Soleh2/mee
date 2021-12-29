@@ -174,41 +174,30 @@ exports.notNum = (q) => {
 exports.menu = (prefix, ucap, pushname2, jumlahUser, timebot, owner, jumlahHarian, jumlahCommand, sender, time, public, levelMenu, xpMenu, reqXp, uangku, role, Limitnya) => {
     return `\`\`\`Selamat ${ucap} Kak @${sender.split('@')[0]} 😳\`\`\`
 
-╭── 「 *BOT INFO* 」 ──
+╭───「 *Info Bot* 」─────❉  
 │
-│❒͡  _*DEFFBOTZ*_ 
-│❒͡ *Contact My Owner*
-│ *https://wa.me/${owner}*
-│❒͡ *Time: ${time}*
-│❒͡ *STATUS* :「 ${public} 」
+│_*Alya Bot*_
+│☉ *Contact My Owner*
+│☉ *https://wa.me/${owner}*
+│☉ *Time: ${time}*
+│☉ *STATUS* :「 ${public} 」
+├──────────────────❉  
+│☉ *Name* : ${pushname2}
+│☉ *Your API* : https://wa.me/${sender.split('@')[0]}
+│☉ *Limit* : ${Limitnya}
+├──────────────────❉  
+│*Your Progress*:
+│*Level:* ${levelMenu}
+│*XP:* ${xpMenu} / ${reqXp}
+│*Role:* ${role}
+│*Your Balance:* $${uangku}
+├──────────────────❉ 
+│⌦ *Runtime:* ${timebot}
+│⌦ *Auto-Regis User:* ${jumlahUser}
+│⌦ *Total Hit Bot:* ${jumlahCommand}
+│⌦ *Total Hit Today:* ${jumlahHarian}
 │
-╰── 「 *DEFFBOTZ* 」 ──
-
-❉──────────────────❉  
-*Name* : *${pushname2}* 
-*Your API* : *https://wa.me/${sender.split('@')[0]}*
-*Limit* : *${Limitnya}*
-
-
-*Your Progress*:
-*Level: ${levelMenu}*
-*XP: ${xpMenu} / ${reqXp}*
-*Role: ${role}*
-*Your Balance: $${uangku}*
-❉──────────────────❉  
-
-*── 「 BOT STATUS 」 ──*
-
- ❏ *${timebot}*
-
- 𒍮 *Auto-Regis User: ${jumlahUser}*
-
- 𒍮 *Total Hit Bot : ${jumlahCommand}*
-
- 𒍮 *Total Hit Today : ${jumlahHarian}*
-
-*── 「 CHIKA BOT 」 ──*
-
+╰────「 *Alya Bot* 」────❉
 
 *Official BOT By @0*`
 }
