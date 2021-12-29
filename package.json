@@ -39,8 +39,7 @@
     "parse-ms": "^2.1.0",
     "pet-pet-gif": "^1.0.9",
     "qrcode": "^1.4.4",
-    "wa-sticker-formatter": "git+https://github.com/rashidsiregar28/wa-sticker-formatter.git",
-    "yt-search": "^2.8.0"
+    "wa-sticker-formatter": "git+https://github.com/rashidsiregar28/wa-sticker-formatter.git"
   },
   "repository": {
     "type": "git",
