@@ -5295,4 +5295,3 @@ _Harap tunggu sebentar, media akan segera dikirim_`
         console.log(color('[ERROR]', 'red'), err)
     }
 }
-jl
