@@ -28,7 +28,7 @@ module.exports = async(xinz, anj, welcome) => {
             } catch {
                 var pic = 'https://i.ibb.co/Tq7d7TZ/age-hananta-495-photo.png'
             }
-                xinz.sendButtonsLoc(anj.jid, `Hai @${anj.participants[0].split("@")[0]}, selamat datang di ${groupName}`,`Welcome Messages by ${botName}`, [{"buttonId": `#menu`,"buttonText": {"displayText": "Menu Bot"},"type": "RESPONSE"},{"buttonId": `#rules`,"buttonText": {"displayText": "Rules Bot"},"type": "RESPONSE"},{"buttonId": `#welcome disable`,"buttonText": {"displayText": "Disable Welcome Messages"},"type": "RESPONSE"}], await getBuffer(pic), [anj.participants[0]])
+                xinz.sendButtonsLoc(anj.jid, `Hallo @${anj.participants[0].split("@")[0]}, selamat datang di ${groupName}`,`Welcome Messages by ${botName}`, [{"buttonId": `#menu`,"buttonText": {"displayText": "Menu Bot"},"type": "RESPONSE"},{"buttonId": `#rules`,"buttonText": {"displayText": "Rules Bot"},"type": "RESPONSE"},{"buttonId": `#welcome disable`,"buttonText": {"displayText": "Disable Welcome Messages"},"type": "RESPONSE"}], await getBuffer(pic), [anj.participants[0]])
         }
     } else if (anj.action === 'remove' && isWelcome){
         try {
