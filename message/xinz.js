@@ -604,7 +604,7 @@ module.exports = async(xinz, msg, smsg, blocked, _afk, welcome) => {
                     },
                     "type": "RESPONSE"
                 }]
-                xinz.sendButtonsLoc(from, `Hai Kak @${sender.split('@')[0]}\n\nSaya Alya Bot, Bot WhatsApp yg membantu kamu untuk mempermudah sesuatu seperti Membuat Sticker dan Lainnya, Ada Butuh Info Dariku?`, `Note: Kalo kamu pakai wa lama atau mod, dan button ga keliatan, langsung aja ketik ${prefix}allmenu`, qqppp, fs.readFileSync(setting.pathImg), [sender])
+                xinz.sendButtonsLoc(from, `Hai Kak @${sender.split('@')[0]}\n\nSaya ChikaBot, Bot WhatsApp yg membantu kamu untuk mempermudah sesuatu seperti Membuat Sticker dan Lainnya, Ada Butuh Info Dariku?`, `Note: Kalo kamu pakai wa lama atau mod, dan button ga keliatan, langsung aja ketik ${prefix}allmenu`, qqppp, fs.readFileSync(setting.pathImg), [sender])
                 }
                 break
              case prefix+'allmenu':{
@@ -649,7 +649,7 @@ module.exports = async(xinz, msg, smsg, blocked, _afk, welcome) => {
                    }
                         list.push(yy)
                     }
-                    xinz.sendList(from, `Selamat ${ucap}`, `Hai kak @${sender.split('@')[0]}, pilih Menu Alya Bot disini`, `Jangan lupa Donasi ya Kak`,`Pilih Disini`, list, msg, [sender])
+                    xinz.sendList(from, `Selamat ${ucap}`, `Hai kak @${sender.split('@')[0]}, pilih Menu ChikaBot disini`, `Jangan lupa Donasi ya Kak`,`Pilih Disini`, list, msg, [sender])
                 })
             }
                 break
@@ -1509,46 +1509,6 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 }
             }
                 break
-            case prefix+'tiktok':
-if (args.length < 1) return reply("```Mana linknya tot```")
-if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('```Invalid link```')
-ttw = await getBuffer('https://telegra.ph/file/73546190384a90aebe079.jpg')
-pnn =await nine.prepareMessage(from, ttw, image)
-tete = [
-{buttonId: `${prefix}tiktokwm ${args.join(' ')}`, buttonText: {displayText: 'WM'}, type: 1},
-{buttonId: `${prefix}tiktoknowm ${args.join(' ')}`, buttonText: {displayText: 'NOWM'}, type: 1},
-{buttonId: `${prefix}tiktokmusic ${args.join(' ')}`, buttonText: {displayText: 'MUSIC'}, type: 1}
-]
-ttbut = {
-imageMessage: pnn.message.imageMessage,
-contentText: `Hai Kak ${pushname} Bot Telah Mendapatkan Title Tersebut , Silahkan Pilih Tombol Akses Di Bawah`,
-footerText: `© Alya`,
-buttons: tete,
-headerType: 4
-}
-await nine.sendMessage(from, ttbut, MessageType.buttonsMessage, {quoted:mek})
-break
-case prefix+'tiktoknowm':
-      if (isBanned) return reply (mess.banned)
-reply(mess.wait)
-anu = await fetchJson (`https://docs-jojo.herokuapp.com/api/tiktok_nowm?url=${args.join(' ')}`)
-buffer = await getBuffer(anu.download)
-nine.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek})
-break
-case prefix+'tiktokwm':
-      if (isBanned) return reply (mess.banned)
-reply(mess.wait)
-anu = await fetchJson (`https://docs-jojo.herokuapp.com/api/tiktok_wm?url=${args.join(' ')}`)
-buffer = await getBuffer (anu.download)
-nine.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek})
-break
-case prefix+'tiktokmusic':
-      if (isBanned) return reply (mess.banned)
-reply(mess.wait)
-anu = await fetchJson(`https://ogata-api.herokuapp.com/api/tiktok2?url=${args.join(' ')}&apikey=KFrfhVC4`)
-buffer = await getBuffer (anu.result.mp3)
-nine.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: mek})
-break
             case prefix+'stickerwm': case prefix+'swm': case prefix+'take': case prefix+'takesticker': case prefix+'takestick':{
                 if (!isPremium) return reply(mess.OnlyPrem)
                 if (args.length < 2) return reply(`Penggunaan ${command} nama|author`)
@@ -2022,57 +1982,13 @@ break
                 if (isImage || isQuotedImage) {
                     let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                     let media = await xinz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-                    await ffmpeg(`${media}`)
-							.input(media)
-							.on('start', function (cmd) {
-								console.log(`Started : ${cmd}`)
-							})
-							.on('error', function (err) {
-								console.log(`Error : ${err}`)
-								fs.unlinkSync(media)
-								reply(mess.error.api)
-							})
-							.on('end', function () {
-								console.log('Finish')
-								exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-                                    if (error) return reply(mess.error.api)
-									xinz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: msg})
-									limitAdd(sender, limit)
-                                    fs.unlinkSync(media)	
-									fs.unlinkSync(`./sticker/${sender}.webp`)	
-								})
-							})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-							.toFormat('webp')
-							.save(`./sticker/${sender}.webp`)
+                    xinz.sendSticker(from, media, msg, true).then((res) => fs.unlinkSync(media))
+                  	limitAdd(sender, limit)
                 } else if ((isVideo && msg.message.videoMessage.fileLength < 10000000 || isQuotedVideo && msg.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
                     let encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
                     let media = await xinz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-					reply(mess.wait)
-                        await ffmpeg(`${media}`)
-							.inputFormat(media.split('.')[4])
-							.on('start', function (cmd) {
-								console.log(`Started : ${cmd}`)
-							})
-							.on('error', function (err) {
-								console.log(`Error : ${err}`)
-								fs.unlinkSync(media)
-								let tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-								reply(mess.error.api)
-							})
-							.on('end', function () {
-								console.log('Finish')
-								exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
-									if (error) return reply(mess.error.api)
-									xinz.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: msg})
-									limitAdd(sender, limit)
-                                    fs.unlinkSync(media)
-									fs.unlinkSync(`./sticker/${sender}.webp`)
-								})
-							})
-							.addOutputOptions([`-vcodec`,`libwebp`,`-vf`,`scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-							.toFormat('webp')
-							.save(`./sticker/${sender}.webp`)
+                    xinz.sendSticker(from, media, msg, true).then((res) => fs.unlinkSync(media))
+                  	limitAdd(sender, limit)
                 } else {
                     reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
                 }
@@ -5154,6 +5070,39 @@ _Harap tunggu sebentar, media akan segera dikirim_`
                 }
                 mentions(txti, arr, true)
                 break
+ //-----------------< Tambahan >----------------------------
+            case prefix+'tiktok':
+			if (!q) return reply('Linknya?')
+			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
+			reply(lang.wait())
+			let wem = args.join(' ')
+			hx.ttdownloader(wem)
+			.then(result => {
+				const { wm, nowm, audio } = result
+				axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
+				.then(async (a) => {
+					me = `*Link* : ${a.data}`
+					weem = await getBuffer(wm)
+					haruka.sendMessage(from,weem , MessageType.document, {mimetype: 'video/mp4',filename: `Tiktok Wm.mp4`,quoted: mek})
+					})
+				}).catch((err) => reply(`Link tidak valid`))
+			break
+            case prefix+'tiktoknowm':   
+			if (!q) return reply('Linknya?')
+			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
+			reply(lang.wait())
+			let nowem = q
+			hx.ttdownloader(nowem)
+			.then(result => {
+				const { wm, nowm, audio } = result
+				axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
+				.then(async (a) => {
+					me = `*Link* : ${a.data}`
+					noweem = await getBuffer(nowm)
+					haruka.sendMessage(from,noweem , MessageType.document, {mimetype: 'video/mp4',filename: `Tiktok Download.mp4`,quoted: mek})
+					})
+				}).catch((err) => reply(`Link tidak valid`))
+			break
 //------------------< Enable / Disable >-------------------
             case prefix+'antibadword':
                 if (!isGroup) return reply(mess.OnlyGrup)
@@ -5346,3 +5295,4 @@ _Harap tunggu sebentar, media akan segera dikirim_`
         console.log(color('[ERROR]', 'red'), err)
     }
 }
+jl
