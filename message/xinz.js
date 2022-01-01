@@ -1509,6 +1509,46 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
                 }
             }
                 break
+            case prefix+'tiktok':
+if (args.length < 1) return reply("```Mana linknya tot```")
+if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('```Invalid link```')
+ttw = await getBuffer('https://telegra.ph/file/73546190384a90aebe079.jpg')
+pnn =await nine.prepareMessage(from, ttw, image)
+tete = [
+{buttonId: `${prefix}tiktokwm ${args.join(' ')}`, buttonText: {displayText: 'WM'}, type: 1},
+{buttonId: `${prefix}tiktoknowm ${args.join(' ')}`, buttonText: {displayText: 'NOWM'}, type: 1},
+{buttonId: `${prefix}tiktokmusic ${args.join(' ')}`, buttonText: {displayText: 'MUSIC'}, type: 1}
+]
+ttbut = {
+imageMessage: pnn.message.imageMessage,
+contentText: `Hai Kak ${pushname} Bot Telah Mendapatkan Title Tersebut , Silahkan Pilih Tombol Akses Di Bawah`,
+footerText: `© Alya`,
+buttons: tete,
+headerType: 4
+}
+await nine.sendMessage(from, ttbut, MessageType.buttonsMessage, {quoted:mek})
+break
+case prefix+'tiktoknowm':
+      if (isBanned) return reply (mess.banned)
+reply(mess.wait)
+anu = await fetchJson (`https://docs-jojo.herokuapp.com/api/tiktok_nowm?url=${args.join(' ')}`)
+buffer = await getBuffer(anu.download)
+nine.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek})
+break
+case prefix+'tiktokwm':
+      if (isBanned) return reply (mess.banned)
+reply(mess.wait)
+anu = await fetchJson (`https://docs-jojo.herokuapp.com/api/tiktok_wm?url=${args.join(' ')}`)
+buffer = await getBuffer (anu.download)
+nine.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek})
+break
+case prefix+'tiktokmusic':
+      if (isBanned) return reply (mess.banned)
+reply(mess.wait)
+anu = await fetchJson(`https://ogata-api.herokuapp.com/api/tiktok2?url=${args.join(' ')}&apikey=KFrfhVC4`)
+buffer = await getBuffer (anu.result.mp3)
+nine.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: mek})
+break
             case prefix+'stickerwm': case prefix+'swm': case prefix+'take': case prefix+'takesticker': case prefix+'takestick':{
                 if (!isPremium) return reply(mess.OnlyPrem)
                 if (args.length < 2) return reply(`Penggunaan ${command} nama|author`)
