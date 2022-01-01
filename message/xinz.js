@@ -5084,7 +5084,7 @@ _Harap tunggu sebentar, media akan segera dikirim_`
                     limitAdd(sender, limit)
                 })
                 .catch((err) => {
-                            sendMess(ownerNumber, 'Tiktok Error : ' + err)
+                            xinz.sendMess(ownerNumber, 'Tiktok Error : ' + err)
                             console.log(color('[Tiktok]', 'red'), err)
                             reply(mess.error.api)
                         })
