@@ -176,26 +176,35 @@ exports.menu = (prefix, ucap, pushname2, jumlahUser, timebot, owner, jumlahHaria
 
 ╭───「 *Info Bot* 」─────❉  
 │
-│_*Alya Bot*_
-│☉ *Contact My Owner*
-│☉ *https://wa.me/${owner}*
-│☉ *Time: ${time}*
-│☉ *STATUS* :「 ${public} 」
+│☉ *Bot name*: AlyaCans
+│☉ *Owner name: Nando
+│☉ *Waktu: ${time}*
+│☉ *Status bot* : ${public} 
+│
 ├──────────────────❉  
+│
 │☉ *Name* : ${pushname2}
-│☉ *Your API* : https://wa.me/${sender.split('@')[0]}
+│☉ *API kamu* : https://wa.me/${sender.split('@')[0]}
 │☉ *Limit* : ${Limitnya}
+│
 ├──────────────────❉  
+│
 │*Your Progress*:
 │*Level:* ${levelMenu}
 │*XP:* ${xpMenu} / ${reqXp}
 │*Role:* ${role}
 │*Your Balance:* $${uangku}
+│
 ├──────────────────❉ 
-│⌦ *Runtime:* ${timebot}
-│⌦ *Auto-Regis User:* ${jumlahUser}
-│⌦ *Total Hit Bot:* ${jumlahCommand}
-│⌦ *Total Hit Today:* ${jumlahHarian}
+│
+│⌦ *Runtime:*
+│${timebot}
+│⌦ *Auto-Regis User:*
+│${jumlahUser}
+│⌦ *Total Hit Bot:*
+│${jumlahCommand}
+│⌦ *Total Hit Today:*
+│${jumlahHarian}
 │
 ╰────「 *Alya Bot* 」────❉
 
