@@ -5071,38 +5071,25 @@ _Harap tunggu sebentar, media akan segera dikirim_`
                 mentions(txti, arr, true)
                 break
  //-----------------< Tambahan >----------------------------
-            case prefix+'tiktok':
-			if (!q) return reply('Linknya?')
-			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
-			reply(lang.wait())
-			let wem = args.join(' ')
-			hx.ttdownloader(wem)
-			.then(result => {
-				const { wm, nowm, audio } = result
-				axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
-				.then(async (a) => {
-					me = `*Link* : ${a.data}`
-					weem = await getBuffer(wm)
-					haruka.sendMessage(from,weem , MessageType.document, {mimetype: 'video/mp4',filename: `Tiktok Wm.mp4`,quoted: mek})
-					})
-				}).catch((err) => reply(`Link tidak valid`))
-			break
-            case prefix+'tiktoknowm':   
-			if (!q) return reply('Linknya?')
-			if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
-			reply(lang.wait())
-			let nowem = q
-			hx.ttdownloader(nowem)
-			.then(result => {
-				const { wm, nowm, audio } = result
-				axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
-				.then(async (a) => {
-					me = `*Link* : ${a.data}`
-					noweem = await getBuffer(nowm)
-					haruka.sendMessage(from,noweem , MessageType.document, {mimetype: 'video/mp4',filename: `Tiktok Download.mp4`,quoted: mek})
-					})
-				}).catch((err) => reply(`Link tidak valid`))
-			break
+            case prefix+'tiktok': 
+            case prefix+'tiktoknowm': {
+                if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
+                if (args.length < 2) return reply(`Penggunaan ${command} _link tiktok_\n\nContoh : ${command} https://vt.tiktok.com/ZSJVPawwv/`)
+                if (!isUrl(args[1]) && !args[1].includes('tiktok.com')) return reply(body.replace(args[1], "*"+args[1]+"*")+'\n\n'+mess.error.Iv+`\nContoh : ${command} https://vt.tiktok.com/ZSJVPawwv/`)
+                reply(mess.wait)
+                axios.get(`https://xteam.xyz/dl/tiktok?url=${args[1]}&apikey=nandowangy`)
+                .then(({data}) => {
+                console.log(data)
+                sendFileFromUrl(from, data.result.nowatermark, '', msg)
+                    limitAdd(sender, limit)
+                })
+                .catch((err) => {
+                            sendMess(ownerNumber, 'Tiktok Error : ' + err)
+                            console.log(color('[Tiktok]', 'red'), err)
+                            reply(mess.error.api)
+                        })
+                  }
+     		break
 //------------------< Enable / Disable >-------------------
             case prefix+'antibadword':
                 if (!isGroup) return reply(mess.OnlyGrup)
