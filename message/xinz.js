@@ -594,7 +594,7 @@ module.exports = async(xinz, msg, smsg, blocked, _afk, welcome) => {
                 let qqppp = [{
                     "buttonId": `${prefix}allmenu`,
                     "buttonText": {
-                        "displayText": "COMMAND"
+                        "displayText": "LIST MENU"
                     },
                     "type": "RESPONSE"
                 },{
