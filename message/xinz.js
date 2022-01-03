@@ -4839,7 +4839,7 @@ _Harap tunggu sebentar, media akan segera dikirim_`
                 xinz.sendMessage(from, await getBuffer(pic), image, {quoted: msg, caption: ingfo, contextInfo: {"mentionedJid": [groupMetadata.owner.replace('@c.us', '@s.whatsapp.net')]}})
                 break
            case prefix+'add': case prefix+'oadd':
-                if (!isGroup) return reply(mess.OnlyGrup)
+                if (!isOwner) return reply(mess.OnlyOwner)
                 if (command.split(prefix)[1] === 'oadd' && !isPremium) return reply(mess.OnlyPrem)
                 if (!isGroupAdmins && !isPremium)return reply(mess.GrupAdmin)
                 if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -4886,7 +4886,7 @@ _Harap tunggu sebentar, media akan segera dikirim_`
                 }
                 break
             case prefix+'kick': case prefix+'okick':
-                if (!isGroup) return reply(mess.OnlyGrup)
+                if (!isOwner) return reply(mess.OnlyOwner)
                 if (command.split(prefix)[1] === 'okick' && !isPremium) return reply(mess.OnlyPrem)
                 if (!isGroupAdmins && !isPremium)return reply(mess.GrupAdmin)
                 if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -4913,7 +4913,7 @@ _Harap tunggu sebentar, media akan segera dikirim_`
                 }
                 break
             case prefix+'promote': case prefix+'opromote':
-                if (!isGroup) return reply(mess.OnlyGrup)
+                if (!isOwner) return reply(mess.OnlyOwner)
                 if (command.split(prefix)[1] === 'opromote' && !isPremium) return reply(mess.OnlyPrem)
                 if (!isGroupAdmins && !isPremium)return reply(mess.GrupAdmin)
                 if (!isBotGroupAdmins) return reply(mess.BotAdmin)
@@ -4934,7 +4934,7 @@ _Harap tunggu sebentar, media akan segera dikirim_`
                 }
                 break
             case prefix+'demote': case prefix+'odemote':
-                if (!isGroup) return reply(mess.OnlyGrup)
+                if (!isOwner) return reply(mess.OnlyOwner)
                 if (command.split(prefix)[1] === 'odemote' && !isPremium) return reply(mess.OnlyPrem)
                 if (!isGroupAdmins && !isPremium)return reply(mess.GrupAdmin)
                 if (!isBotGroupAdmins) return reply(mess.BotAdmin)
