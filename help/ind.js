@@ -177,15 +177,15 @@ exports.menu = (prefix, ucap, pushname2, jumlahUser, timebot, owner, jumlahHaria
 ╭──「 *Info Bot* 」─❉  
 │
 │ ☉ *Bot name*: AlyaCans
-│ ☉ *Owner name: Nando
-│ ☉ *Waktu: ${time}*
-│ ☉ *Status bot* : ${public} 
+│ ☉ *Owner name:* Nando
+│ ☉ *Waktu:* ${time}
+│ ☉ *Status bot:* ${public} 
 │
 ├───────────────❉  
 │
-│ ☉ *Name* : ${pushname2}
-│ ☉ *API kamu* : https://wa.me/${sender.split('@')[0]}
-│ ☉ *Limit* : ${Limitnya}
+│ ☉ *Name:* ${pushname2}
+│ ☉ *API kamu:* https://wa.me/${sender.split('@')[0]}
+│ ☉ *Limit:* ${Limitnya}
 │
 ├───────────────❉  
 │
@@ -197,14 +197,14 @@ exports.menu = (prefix, ucap, pushname2, jumlahUser, timebot, owner, jumlahHaria
 │
 ├───────────────❉ 
 │
-│ ⌦ *Runtime:*
+│ ☉ *Runtime:*
 │ ${timebot}
-│ ⌦ *Auto-Regis User:*
+│ ☉ *Auto-Regis User:*
 │ ${jumlahUser}
-│ ⌦ *Total Hit Bot:*
+│ ☉ *Total Hit Bot:*
 │ ${jumlahCommand}
-│ ⌦ *Total Hit Today:*
-│ $ {jumlahHarian}
+│ ☉ *Total Hit Today:*
+│ ${jumlahHarian}
 │
 ╰──「 *Alya Bot* 」─❉
 
@@ -249,7 +249,6 @@ exports.menuText = (prefix) => {
 exports.menuPremi = (prefix) => {
     return `
 *── 「 PREMIUM 」 ──*
-Halo premium users ヽ(・∀・)ﾉ!
 #ytdl
 #ytmp4
 #ytmp3
