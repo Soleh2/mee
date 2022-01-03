@@ -603,8 +603,14 @@ module.exports = async(xinz, msg, smsg, blocked, _afk, welcome) => {
                         "displayText": "RULES"
                     },
                     "type": "RESPONSE"
+                },{
+                    "buttonId": `${prefix}donasi`,
+                    "buttonText": {
+                        "displayText": "DONASI"
+                    },
+                    "type": "RESPONSE"
                 }]
-                xinz.sendButtonsLoc(from, `Hai Kak @${sender.split('@')[0]}\n\nSaya ChikaBot, Bot WhatsApp yg membantu kamu untuk mempermudah sesuatu seperti Membuat Sticker dan Lainnya, Ada Butuh Info Dariku?`, `Note: Kalo kamu pakai wa lama atau mod, dan button ga keliatan, langsung aja ketik ${prefix}allmenu`, qqppp, fs.readFileSync(setting.pathImg), [sender])
+                xinz.sendButtonsLoc(from, `Hai Kak @${sender.split('@')[0]}\n\nSaya Alya Bot, Bot WhatsApp yg membantu kamu untuk mempermudah sesuatu seperti Membuat Sticker dan Lainnya, Ada Butuh Info Dariku?`, `Note: Kalo kamu pakai wa lama atau mod, dan button ga keliatan, langsung aja ketik ${prefix}allmenu`, qqppp, fs.readFileSync(setting.pathImg), [sender])
                 }
                 break
              case prefix+'allmenu':{
@@ -649,7 +655,7 @@ module.exports = async(xinz, msg, smsg, blocked, _afk, welcome) => {
                    }
                         list.push(yy)
                     }
-                    xinz.sendList(from, `Selamat ${ucap}`, `Hai kak @${sender.split('@')[0]}, pilih Menu ChikaBot disini`, `Jangan lupa Donasi ya Kak`,`Pilih Disini`, list, msg, [sender])
+                    xinz.sendList(from, `Selamat ${ucap}`, `Hai kak @${sender.split('@')[0]}, pilih Menu Alya disini`, `Jangan lupa Donasi ya Kak`,`Pilih Disini`, list, msg, [sender])
                 })
             }
                 break
