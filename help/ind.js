@@ -35,8 +35,8 @@ Daftar hadis:
 
 exports.groupBot = (sender) => {
     return `
-Link Group Chika Fenst : https://chat.whatsapp.com/HLU6B1Mw34QBMUoXAyhec0
-Link Group Chika Fenst V2 : https://chat.whatsapp.com/IwGkynIvQAk1J6wQVDLeFC
+Link Group : https://chat.whatsapp.com/CTgARPa75SL9MbBMuOmZxH
+Link Group : https://chat.whatsapp.com/IoB5boSiSEcAwFwJwRo3FJ
 
 
 Jangan lupa join ya kak @${sender.split('@')[0]}`
@@ -174,39 +174,39 @@ exports.notNum = (q) => {
 exports.menu = (prefix, ucap, pushname2, jumlahUser, timebot, owner, jumlahHarian, jumlahCommand, sender, time, public, levelMenu, xpMenu, reqXp, uangku, role, Limitnya) => {
     return `\`\`\`Selamat ${ucap} Kak @${sender.split('@')[0]} 😳\`\`\`
 
-╭───「 *Info Bot* 」─────❉  
+╭──「 *Info Bot* 」─❉  
 │
-│☉ *Bot name*: AlyaCans
-│☉ *Owner name: Nando
-│☉ *Waktu: ${time}*
-│☉ *Status bot* : ${public} 
+│ ☉ *Bot name*: AlyaCans
+│ ☉ *Owner name: Nando
+│ ☉ *Waktu: ${time}*
+│ ☉ *Status bot* : ${public} 
 │
-├──────────────────❉  
+├───────────────❉  
 │
-│☉ *Name* : ${pushname2}
-│☉ *API kamu* : https://wa.me/${sender.split('@')[0]}
-│☉ *Limit* : ${Limitnya}
+│ ☉ *Name* : ${pushname2}
+│ ☉ *API kamu* : https://wa.me/${sender.split('@')[0]}
+│ ☉ *Limit* : ${Limitnya}
 │
-├──────────────────❉  
+├───────────────❉  
 │
-│*Your Progress*:
-│*Level:* ${levelMenu}
-│*XP:* ${xpMenu} / ${reqXp}
-│*Role:* ${role}
-│*Your Balance:* $${uangku}
+│ ☉ *Your Progress*:
+│ ☉ *Level:* ${levelMenu}
+│ ☉ *XP:* ${xpMenu} / ${reqXp}
+│ ☉ *Role:* ${role}
+│ ☉ *Your Balance:* $${uangku}
 │
-├──────────────────❉ 
+├───────────────❉ 
 │
-│⌦ *Runtime:*
-│${timebot}
-│⌦ *Auto-Regis User:*
-│${jumlahUser}
-│⌦ *Total Hit Bot:*
-│${jumlahCommand}
-│⌦ *Total Hit Today:*
-│${jumlahHarian}
+│ ⌦ *Runtime:*
+│ ${timebot}
+│ ⌦ *Auto-Regis User:*
+│ ${jumlahUser}
+│ ⌦ *Total Hit Bot:*
+│ ${jumlahCommand}
+│ ⌦ *Total Hit Today:*
+│ $ {jumlahHarian}
 │
-╰────「 *Alya Bot* 」────❉
+╰──「 *Alya Bot* 」─❉
 
 *Official BOT By @0*`
 }
@@ -439,7 +439,6 @@ exports.menuNsfw = (prefix) => {
 exports.menuOwner = (prefix) => {
     return `
 *── 「 OWNER MENU 」 ──*
-Halo Owner-sama ヽ(・∀・)ﾉ!
 #owner
 #premium add
 #self
@@ -456,7 +455,7 @@ Halo Owner-sama ヽ(・∀・)ﾉ!
 
 exports.menuLeveling = (prefix) => {
     return `
-*── 「 infomenu 」 ──*
+*── 「 info 」 ──*
 #limit
 #donasi
 #speed
@@ -468,7 +467,7 @@ exports.menuLeveling = (prefix) => {
 
 exports.menuPrimbon = (prefix) => {
     return `
-*── 「 PRIMBON MENU 」 ──*
+*── 「 PRIMBON 」 ──*
 #artinama
 #artimimpi
 #jodoh
@@ -545,15 +544,9 @@ exports.menuPrice = (owner, pushname) => {
 *15K/Group Selama 1 Bulan*
 
 *Pembayaran Bisa Melalui Metode Pembayaran di Bawah:*
-*OVO/Dana/Gopay = ${owner}*
+*Dana/Gopay = 081252848955
 *QRis yang dilampirkan*
-*PAYPAL = rashidsiregar28@gmail.com*
-
-*_note_*:
-*Jika kalian ingin menjadi owner bot,bisa chat owner untuk price nya :D*
-*wa.me/${owner} (Owner)*
-
-    `
+`
 }
 
 exports.UpToPremi = (ownerNumber, prefix) => {
@@ -566,14 +559,11 @@ exports.UpToPremi = (ownerNumber, prefix) => {
 ♲ *Dapat Informasi Lebih dulu akan Update, Nomor Bot Baru (Jika Terbanned), dan Lainnya*
 
 *Jika Tertarik,Kalian Bisa Bayar Melalui Metode Pembayaran di Bawah:*
-*OVO/Dana/Gopay = ${ownerNumber}*
+*OVO/Dana/Gopay = 081252848955
 *Qris pada gambar diatas*
 
 *Info Lebih Lengkap Chat Owner, Ketik ${prefix}owner
-*_note_*:
-*Pembelian Premium yang disertai SewaBot hanya akan membayar 20K (Diskon 5K)*
-
-    `
+`
 }
 
 exports.rules = (prefix) => {
@@ -599,7 +589,7 @@ exports.tos = (ownerNumber, prefix) => {
 *── 「 DONATE 」 ──*
 
 Kalian bisa mendukung saya agar bot ini tetap up to date dengan:
-089501060783 (OVO/Telkomsel/GoPay)
+081252848955 (Dana/Telkomsel/GoPay)
 
 
 Terima kasih!
