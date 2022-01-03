@@ -3698,7 +3698,7 @@ Alert!!! : ${res.desc}`))
                 }
                 break
             case prefix+'sourcecode': case prefix+'sc': case prefix+'src':
-                textImg(`Bot ini menggunakan sc : https://github.com/rashidsiregar28/chika-bot`)
+                textImg(`Bot ini menggunakan sc : https://github.com/AlyaCanz/AliyaCans`)
                 break
             case prefix+'donate':
             case prefix+'donasi':
