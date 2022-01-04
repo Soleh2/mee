@@ -2068,24 +2068,7 @@ _Silahkan tunggu file media sedang dikirim mungkin butuh beberapa menit_`
           );
         }
         break
-            case prefix+'stickerp':
-            case prefix+'stikerp':{
-                if (isLimit(sender, isPremium, isOwner, limitCount, limit)) return reply (`Limit kamu sudah habis silahkan kirim ${prefix}limit untuk mengecek limit`)
-                if (isImage || isQuotedImage) {
-                    let encmedia = isQuotedImage ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
-                    let media = await xinz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-                    xinz.sendSticker(from, media, msg).then((res) => fs.unlinkSync(media))
-                  	limitAdd(sender, limit)
-                } else if ((isVideo && msg.message.videoMessage.fileLength < 10000000 || isQuotedVideo && msg.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.fileLength < 10000000)) {
-                    let encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(msg).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : msg
-                    let media = await xinz.downloadAndSaveMediaMessage(encmedia, `./sticker/${sender}`)
-                    xinz.sendSticker(from, media, msg).then((res) => fs.unlinkSync(media))
-                  	limitAdd(sender, limit)
-                } else {
-                    reply(`Kirim gambar/video dengan caption ${prefix}sticker atau tag gambar/video yang sudah dikirim\nNote : Durasi video maximal 10 detik`)
-                }
-            }
-                break
+           
             case prefix+'toimg':
             case prefix+'stickertoimg':
             case prefix+'stoimg':
